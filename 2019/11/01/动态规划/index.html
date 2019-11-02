@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据结构," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="背包问题提到动态规划。就不得不提及背包问题了，背包问题作为动态规划算法的入门经典，">
-<meta name="keywords" content="数据结构">
+<meta name="description" content="动态规划提到动态规划。就不得不提及背包问题了，背包问题作为动态规划算法的入门经典，接下来我们将由背包问题来学习动态规划。 01背包问题有 n 件物品，和一容积为 V 的背包，第 i 件物品的体积为 v ，价值为 c。将第几件物品装入，使体积不超过总体积，且价值和最大，求最大价值。由题意易知状态转移方程： Fi,j=max(Fi−1,j ,Fi-1,j−vi+ci) Fi,j为前 i 件物品放入容量">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划">
+<meta property="og:title" content="背包问题">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;01&#x2F;%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92&#x2F;index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="背包问题提到动态规划。就不得不提及背包问题了，背包问题作为动态规划算法的入门经典，">
+<meta property="og:description" content="动态规划提到动态规划。就不得不提及背包问题了，背包问题作为动态规划算法的入门经典，接下来我们将由背包问题来学习动态规划。 01背包问题有 n 件物品，和一容积为 V 的背包，第 i 件物品的体积为 v ，价值为 c。将第几件物品装入，使体积不超过总体积，且价值和最大，求最大价值。由题意易知状态转移方程： Fi,j=max(Fi−1,j ,Fi-1,j−vi+ci) Fi,j为前 i 件物品放入容量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-01T11:05:18.180Z">
+<meta property="og:updated_time" content="2019-11-02T07:17:48.739Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>动态规划 | 我的博客</title>
+  <title>背包问题 | 我的博客</title>
   
 
 
@@ -268,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">动态规划</h1>
+          <h1 class="post-title" itemprop="name headline">背包问题</h1>
         
 
         <div class="post-meta">
@@ -318,7 +318,22 @@
       
 
       
-        <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><p>提到动态规划。就不得不提及背包问题了，背包问题作为动态规划算法的入门经典，</p>
+        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>提到动态规划。就不得不提及背包问题了，背包问题作为动态规划算法的入门经典，接下来我们将由背包问题来学习动态规划。</p>
+<h2 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h2><p>有 n 件物品，和一容积为 V 的背包，第 i 件物品的体积为 v ，价值为 c。将第几件物品装入，使体积不超过总体积，且价值和最大，求最大价值。<br>由题意易知状态转移方程： F<sub>i,j</sub>=max(F<sub>i−1,j</sub> ,F<sub>i-1,j−vi</sub>+ci)</p>
+<p>F<sub>i,j</sub>为前 i 件物品放入容量为 V 的背包中最大价值</p>
+<p>假设存在这样的数组</p>
+<blockquote>
+<p>V = 20 N = 5  背包的最大容量和物品件数<br>c[5]={2,3,4,5,9} /=/&gt; 每件的重量<br>v[5]={3,4,5,6,10} /=/&gt; 每件的价值</p>
+</blockquote>
+<p>根据条件，我们可以写出代码<br>一维数组实现</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//01背包</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> V 21</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 6</span></span><br><span class="line"><span class="keyword">int</span> F[<span class="number">6</span>] = &#123; <span class="number">0</span> &#125;; <span class="comment">//以一维数组来存储</span></span><br><span class="line"><span class="keyword">int</span> c[<span class="number">6</span>] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">6</span>] = &#123;<span class="number">0</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">backpack01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=V<span class="number">-1</span>;j&gt;<span class="number">0</span>;j--)</span><br><span class="line">		&#123;</span><br><span class="line">			F[j]=max(F[j],F[j-c[i]]+v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用一维数组实现必须用逆序来改变数组的值，不然前面数组改变，后面数组也会改变，就无法得到我们想要的数组了。<br>二维数组实现</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//01背包</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> V 21</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 6</span></span><br><span class="line"><span class="keyword">int</span> F[<span class="number">6</span>][<span class="number">21</span>] = &#123; <span class="number">0</span> &#125;; <span class="comment">//以二维数组来存储</span></span><br><span class="line"><span class="keyword">int</span> c[<span class="number">6</span>] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">6</span>] = &#123;<span class="number">0</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">backpack01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; V; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//以j作为当前背包的容量</span></span><br><span class="line">			<span class="keyword">if</span>(c[i]&gt;j)<span class="comment">//如果背包容量小于第i个物品容量，则不选择i，选择原先的第i-1个物品</span></span><br><span class="line">			&#123;</span><br><span class="line">				F[i][j] = F[i - <span class="number">1</span>][j];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span><span class="comment">//如果大于</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">int</span> value1=F[i<span class="number">-1</span>][j];<span class="comment">//不选择i</span></span><br><span class="line">				<span class="keyword">int</span> value2=F[i<span class="number">-1</span>][j-c[i]]+v[i];<span class="comment">//选择i</span></span><br><span class="line">				<span class="comment">//选择最优</span></span><br><span class="line">				<span class="keyword">if</span> (value1&lt;value2)</span><br><span class="line">					F[i][j] = value2;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					F[i][j]= value1;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>则二维数组F[N-1][V-1]就是我们可以得到的最大价值。</p>
+<h2 id="完全背包问题"><a href="#完全背包问题" class="headerlink" title="完全背包问题"></a>完全背包问题</h2><p>完全背包不过是01背包的一种衍生，即挑选的物品件数是没有限制的，以同样以上面的例子来写代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//完全背包</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> V 21</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 6</span></span><br><span class="line"><span class="keyword">int</span> F[<span class="number">6</span>] = &#123; <span class="number">0</span> &#125;; <span class="comment">//以一维数组来存储</span></span><br><span class="line"><span class="keyword">int</span> c[<span class="number">6</span>] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">6</span>] = &#123;<span class="number">0</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">backpack01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=c[i];j&lt;V;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			F[j]=max(F[j],F[j-c[i]]+v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即每件物品可以多次选择。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>动态规划问题本质就是选与不选的问题，选择某个步骤和不选某个步骤，分别会产生什么影响，并且从中选择最好的步骤，则就是动态规划算法的思想。选与不选，可看作一类重复的问题，则意味着动态规划也可以用递归实现，比较每次选和不选的步骤优劣，动态的查找到我们想要的最优解。</p>
 
       
     </div>
@@ -336,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
           
         </div>
       
@@ -451,7 +466,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -500,7 +515,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背包问题"><span class="nav-number">1.</span> <span class="nav-text">背包问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01背包问题"><span class="nav-number">2.</span> <span class="nav-text">01背包问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完全背包问题"><span class="nav-number">3.</span> <span class="nav-text">完全背包问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
