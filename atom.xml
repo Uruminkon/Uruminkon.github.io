@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-15T03:10:35.140Z</updated>
+  <updated>2019-11-18T15:08:04.103Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DFS和BFS算法</title>
+    <link href="http://yoursite.com/2019/11/17/DFS%E5%92%8CBFS%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/11/17/DFS%E5%92%8CBFS%E7%AE%97%E6%B3%95/</id>
+    <published>2019-11-17T03:31:58.000Z</published>
+    <updated>2019-11-18T15:08:04.103Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="DFS算法是什么？"><a href="#DFS算法是什么？" class="headerlink" title="DFS算法是什么？"></a>DFS算法是什么？</h2><p>图是数据结构中最重要且最复杂的一种，树作为一种不成环的图，它的前序遍历对图的遍历来讲有着相似之处。<br>深度优先遍历(DFS)算法思想。</p><ul><li>以某个结点A作为其他，依次找到A相邻的结点B，标记访问过的结点。</li><li>以结点B为起点，继续访问B相邻的结点，直到没有结点可以访问</li><li>回溯到上个结点，直到访问全部结点</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DFS算法是什么？&quot;&gt;&lt;a href=&quot;#DFS算法是什么？&quot; class=&quot;headerlink&quot; title=&quot;DFS算法是什么？&quot;&gt;&lt;/a&gt;DFS算法是什么？&lt;/h2&gt;&lt;p&gt;图是数据结构中最重要且最复杂的一种，树作为一种不成环的图，它的前序遍历对图的遍历来讲
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>字符串匹配KMP算法</title>
