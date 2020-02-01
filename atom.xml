@@ -2,7 +2,7 @@
 <feed xmlns="https://www.w3.org/2005/Atom">
   <title>我的博客</title>
   
-  <subtitle>学习使我快乐</subtitle>
+  <subtitle>在记录中成长</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
